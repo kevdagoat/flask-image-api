@@ -2,19 +2,15 @@ import os
 import cv2
 import numpy as np
 
+
 class ImageProcessor():
     
-    def __init__(self):
-        self.path = None
-        self.thumbnail_path = None
-        self.original_path = None
+    def __init__(self, config):
+        self.path = os.path.join(os.getcwd(), config['image_dir'])
+        self.thumbnail_path = os.path.join(self.path, "thumbnails")
+        self.original_path = os.path.join(self.path, "originals")
         self.image_queue = []
-        self.thumb_factor = 0.25
-    
-    def set_image_path(self, path):
-        self.path = path
-        self.thumbnail_path = os.path.join(path, "thumbnails")
-        self.original_path = os.path.join(path, "originals")
+        self.thumb_factor = config['resize_factor']
         
         # Ensure our directories exist
         try: os.makedirs(self.path)
@@ -24,7 +20,6 @@ class ImageProcessor():
         try: os.makedirs(self.original_path)
         except FileExistsError: pass
 
-        
     def queue_image(self, name, data):
         self.image_queue.append({"name": name, "data": data})
     

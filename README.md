@@ -11,15 +11,15 @@ pip3 install -r requirements.txt
 
 ## Usage
 
-Run 
+Run
 
 ```
-python3 main.py 
+python3 main.py
 ```
 
 And browse to [http://localhost:8000](http://localhost:8000) for the Swagger GUI.
 
-## Todo 
+## Todo
 
 - Add configuration
 - Proper image validation on upload

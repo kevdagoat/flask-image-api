@@ -1,0 +1,8 @@
+# The directory in which to save the images
+# This is relative to the application
+image_dir: "images/"
+
+# Thumbnail resize factor (decimal)
+# A fixed size can be problematic with stretching and warping
+# Example: 0.5 = half of original image, or 50%
+resize_factor: 0.5
